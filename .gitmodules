@@ -1,0 +1,3 @@
+[submodule "projeto-android"]
+	path = projeto-android
+	url = https://github.com/JefersonManso/projeto-android.git
