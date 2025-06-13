@@ -1,48 +1,83 @@
-# Descrição
-Neste projeto foi utilizado o Docker Compose para executar uma aplicação HTML em um Container Apache. 
-Você poderá ir além e fazer alterações mais robustas ao seu projeto, estilizando sua página e utilizando 
-seus conhecimentos em (HTML, CSS e JS). Você também pode buscar outras formas para executar seu arquivo 
-HTML em outras Linguagens de Programação.
+# Projeto: Aplicação HTML com Apache via Docker Compose
+
+## Descrição
+Este projeto utiliza o Docker Compose para executar uma aplicação HTML dentro de um container Apache (httpd). 
+Você pode personalizar sua página com HTML, CSS e JavaScript, além de explorar formas alternativas de executar 
+aplicações web com outras linguagens de programação.
 
 ### Passo a Passo
 
-- Criar um arquivo YML com as definições de um servidor Apache (httpd); 
-- Especificar no arquivo YML o local onde os arquivos da aplicação estarão.
-- Subir o arquivo YML e a aplicação para um repositório no GitHub.
+- Criar um arquivo ```docker-compose.yml``` com a definição do container Apache.
+- Especificar no arquivo o caminho local dos arquivos da aplicação.
+- Subir o projeto para um repositório no GitHub
 
-### Comandos utilizados
+  ### Estrutura do projeto
+  
+- docker-projeto1-dio/
+- ├── docker-compose.yml
+- └── website/
+- └── index.html
 
-- Acesso ao GitHub para clonar repositório: ``` git clone ```
- 
-- Criando o diretório do projeto docker: ``` docker-projeto1-dio```
 
-- Dentro do diretório docker-projeto1-dio, crie um arquivo nano :``` nano compose.yml```
- ```
+# docker-compose.yml (exemplo)
 
-Dentro deste arquivo colocar as seguintes configurações:
-version: "3.9",
+```
+version: "3.9"
+
 services:
   apache:
-  image:httpd:latest
-  container_name: my-apache-app
-  ports:
-  - '8080:80'
-  volumes:
-  - ./website:/usr/local/apache2/htdocs
+    image: httpd:latest
+    container_name: my-apache-app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./website:/usr/local/apache2/htdocs
+```
 
-  ```
+
+### 💡 Dica: O Apache servirá apenas arquivos HTML, CSS e JS colocados dentro do diretório website.
 
 
-- Após o arquivo nano compose.yml configurado, criasse um diretório para armazenar o site.
-- OBS: Criar o novo  ``` mkdir website``` Dentro do diretório docker-projeto1-dio
-- Dentro do diretório website criar o arquivo ``` nano index.html``` OBS: O apache só vai considerar os arquivos de HTML, CSS e JavaScript
-- Para salvar o arquivo ``` ctrl + O``` depois tecle Enter, e para sair do nano digite ```ctrl x```
-- Feche o arquivo ``` nano index.html```
-- Instale o docker compose ``` apt install docker-compose```
-- Após o docker compose instalado é preciso gerar o arquivo ``` docker-compose up -d```
-- Para saber se o container foi iniciado ``` docker container ls```
+### Criando a estrutura do projeto
 
-### Subindo o projeto para o GitHub
+```
+# Clonando repositório (se já existir)
+git clone https://github.com/seu-usuario/docker-apache-html.git
+
+# Criar diretório do projeto
+mkdir docker-projeto1-dio && cd docker-projeto1-dio
+
+# Criar arquivo docker-compose.yml
+nano docker-compose.yml
+
+# Criar diretório da aplicação
+mkdir website && cd website
+
+# Criar o arquivo HTML da aplicação
+nano index.html
+```
+
+# Comandos adicionais
+
+```
+# Salvar arquivo no nano
+Ctrl + O, Enter
+
+# Sair do nano
+Ctrl + X
+
+# Instalar o Docker Compose (caso necessário)
+sudo apt install docker-compose
+
+# Subir o container
+docker-compose up -d
+
+# Verificar se o container está rodando
+docker ps
+```
+
+# Subindo o projeto para o GitHub
+
 ```
 git init
 git remote add origin https://github.com/seu-usuario/docker-apache-html.git
@@ -51,4 +86,3 @@ git commit -m "Projeto HTML com Apache via Docker Compose"
 git branch -M main
 git push -u origin main
 ```
-  
