@@ -16,7 +16,7 @@ HTML em outras Linguagens de Programação.
  
 - Criando o diretório do projeto docker: ``` docker-projeto1-dio```
 
-- Abrir o arquivo docker-projeto1-dio para fazer as configurações :``` nano compose.yml```
+- Dentro do diretório docker-projeto1-dio, crie um arquivo nano :``` nano compose.yml```
  ```
 
 Dentro deste arquivo colocar as seguintes configurações:
